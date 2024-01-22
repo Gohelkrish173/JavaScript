@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calc.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="box">
+    <div class="calc-box">
+      
+      <div class="calc-eval">
+        <input type="text" class="c-eval" readonly>
+      </div>
+
+      <div class="calc-operators">
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '%';
+          document.querySelector('.c-eval').value = currentDisplay;  
+        ">
+          <p>%</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = Math.pow(eval(currentDisplay),2);
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>x^2</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '/';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>/</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay.slice(0,currentDisplay.length-1);
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p><i class="fa-solid fa-delete-left"></i></p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '7';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>7</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '8';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>8</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '9';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>9</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '*';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>*</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '4';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>4</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '5';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>5</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '6';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>6</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '-';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>-</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '1';
+          document.querySelector('.c-eval').value = currentDisplay;  
+        ">
+          <p>1</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '2';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>2</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '3';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>3</p>
+        </div>
+
+        <div class="o" onclick="
+          currentDisplay = currentDisplay + '+';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>+</p>
+        </div>
+
+        <div class="o" onclick = "
+          currentDisplay = currentDisplay + '0';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>0</p>
+        </div>
+
+        <div class="o" onclick = "
+          currentDisplay = currentDisplay + '.';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>.</p>
+        </div>
+
+        <div class="o" onclick = "
+          currentDisplay = '';
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>AC</p>
+        </div>
+
+        <div class="o" onclick = "
+          currentDisplay = eval(currentDisplay);
+          document.querySelector('.c-eval').value = currentDisplay;
+        ">
+          <p>=</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    let currentDisplay = '';
+    document.querySelector('.c-eval').value = currentDisplay;
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cricket Game</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>Bat Ball Stump Game</h1>
+   
+  <button onclick=" 
+  userChoice = 'Bat';
+  computerChoice = `${generateRandomValue()}`;
+  result = generateResult(userChoice , computerChoice);
+  showResult(userChoice,computerChoice,result);
+  ">Bat</button>
+  
+  <button onclick=";
+    userChoice = 'Bowl';
+    computerChoice = `${generateRandomValue()}`;
+    result = generateResult(userChoice , computerChoice);
+    showResult(userChoice,computerChoice,result);
+  ">Ball</button>
+  
+  <button onclick="
+    userChoice = 'Stump';
+    computerChoice = `${generateRandomValue()}`;
+    result = generateResult(userChoice , computerChoice);
+    showResult(userChoice,computerChoice,result);
+  ">Stump</button>
+
+  <button onclick="localStorage.clear()
+    resetScore();
+  ">clear</button>
+
+  <div class="giveScore"></div>
+
+  <script>
+    let ScoreStr = localStorage.getItem('s')
+    let Score;
+    resetScore(ScoreStr);
+
+    function resetScore(ScoreStr){
+      Score = ScoreStr ? JSON.parse(ScoreStr) : {
+        Won : 0,
+        Lost : 0,
+        Tie : 0,
+      }
+    }
+    
+    
+
+    function generateRandomValue(){
+      let randomNumber = Math.random()*3;
+
+      if(randomNumber > 0 && randomNumber <=1){
+        return 'Bat'; 
+      }
+
+      else if(randomNumber > 1 && randomNumber <=2){
+        return 'Bowl';
+      }
+
+      else{
+        return 'Stump';
+      }
+
+    }
+
+      let r = {
+        result1 : '',
+        result2 : ''
+      }
+    function generateResult(userChoice , computerChoice){
+      
+      if(userChoice === 'Bat' && computerChoice === 'Bowl'){
+        r.result1 = 'bat defeats bowl';
+        r.result2 = 'User Won';
+        Score.Won = Score.Won + 1;
+        return r;
+        
+      }
+      else if(userChoice === 'Bat' && computerChoice === 'Stump'){
+        r.result1 = 'stump defeats bat';
+        r.result2 = 'Computer Won';
+        Score.Lost = Score.Lost + 1;
+        return r;
+      }
+      else if(userChoice === 'Bowl' && computerChoice === 'Bat'){
+        r.result1 = 'bat defeats bowl';
+        r.result2 = 'Computer Won';
+        Score.Lost = Score.Lost + 1;
+        return r;
+      }
+      else if(userChoice === 'Bowl' && computerChoice === 'Stump'){
+        r.result1 = 'bowl defeats stump';
+        r.result2 = 'User Won';
+        Score.Won = Score.Won + 1;
+        return r;
+      }
+      else if(userChoice === 'Stump' && computerChoice === 'Bat'){
+        r.result1 = 'stump defeats bat';
+        r.result2 = 'User Won';
+        Score.Won = Score.Won + 1;
+        return r;
+      }
+      else if(userChoice === 'Stump' && computerChoice === 'Bowl'){
+        r.result1 = 'bowl defeats stump';
+        r.result2 = 'Computer Won';
+        Score.Lost = Score.Lost + 1;
+        return r;
+      }
+      else{
+        r.result1 = "Both Are Equal";
+        r.result2 = "Match Tie";
+        Score.Tie = Score.Tie + 1;
+        return r;
+      }
+
+    }
+
+    function showResult(userChoice,computerChoice,result){
+      localStorage.setItem('s',JSON.stringify(Score));
+      document.querySelector(".giveScore").innerText = `Score : \n Won : ${Score.Won} , \n Lost : ${Score.Lost} , \n Tie : ${Score.Tie} .`;
+            
+      alert(`You Have Chosen ${userChoice}. Computer Choice is ${computerChoice}. \n ${result.result1} ,\n ${result.result2}, \n 
+      Won : ${Score.Won} , Lost : ${Score.Lost} , Tie : ${Score.Tie} .`);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ticket</title>
+</head>
+<link rel="stylesheet" href="index.css">
+<body>
+  <div class="content">
+    <div class="eval-content">
+      <div class="box">
+        <p>Price   :</p> 
+        <input type="text" class="box1 price" readonly>
+      </div>
+
+      <div class="box">
+        <p>GST 18% :</p> 
+        <input type="text" class="box1 gst" readonly>
+      </div>
+
+      <div class="box">
+        <p>Discount :</p>  
+        <input type="text" class="box1 discount" readonly>
+      </div>
+
+      <div class="box">
+        <p>Grand-Total :</p>  
+        <input type="text" class="box1 Grandtotal" readonly>
+      </div>
+
+    </div>
+
+    <div class="price-block">
+      
+      <div class="box2">
+        <input type="button" class="btn" value="Add" onclick = "
+            Price = Price + '100+';
+            document.querySelector('.price').value = Price;
+          ">
+        <p>Adult Men Prize : Rs. 100</p>
+      </div>
+
+      <div class="box2">
+        <input type="button" class="btn" value="Add" onclick = "
+          Price = Price + '50+';
+          document.querySelector('.price').value = Price;
+        ">
+        <p>Adult Women Prize : Rs. 50</p>
+      </div>
+
+      <div class="box2">
+        <input type="button" class="btn" value="Add" onclick="
+            Price = Price + '0+';
+            document.querySelector('.price').value = Price;
+          ">
+        <p>Kids Under 5 year Prize : 0</p>
+      </div>
+
+      <div class="box2">
+        <input type="button" class="btn" value="Add" onclick="
+            Price = Price + '50+';
+            document.querySelector('.price').value = Price;
+          ">
+        <p>Kids up to 8 years : 50</p>
+      </div>
+
+      <div class="box2">
+        <input type="button" class="btn" value="Add" onclick="
+            Price = Price + '30+';
+            document.querySelector('.price').value = Price;
+          ">
+        <p>People Over 65 years: 30</p>
+      </div>
+
+      <div class="box2">
+        <input type="button" class="btn" value="=" onclick="
+          let n = eval(Price.slice(0,Price.length-1));
+          document.querySelector('.price').value = n || 0;
+          
+          GST = n + '*.18';
+          let gst = eval(GST);
+          document.querySelector('.gst').value = gst || 0;
+          
+          let N = n + gst;
+
+          Discount = N - Math.floor(N);
+          document.querySelector('.discount').value = Discount || 0;
+
+          GrandTotal = Math.floor(N);
+          document.querySelector('.Grandtotal').value = GrandTotal || 0;
+
+        ">
+        <p>Total Calculation</p>
+      </div>
+
+    </div>
+
+    <script>
+      let Price = '';
+      let GST = '';
+      let Discount = '';
+      let GrandTotal = '';
+    </script>
+    
+  </div>
+</body>
+</html>
